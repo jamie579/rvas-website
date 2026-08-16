@@ -301,9 +301,10 @@ h1, h2, h3 {
   background: var(--chip-green);
   border-bottom: 1px solid var(--line);
 }
-.month:nth-child(4n+2) .month-name { background: var(--chip-peach); color: #7a4a15; }
-.month:nth-child(4n+3) .month-name { background: var(--chip-blue); color: #2e4a6e; }
-.month:nth-child(4n+4) .month-name { background: var(--chip-yellow); color: #6e5a14; }
+.month-winter .month-name { background: var(--chip-blue); color: #2e4a6e; }
+.month-spring .month-name { background: var(--chip-green); color: var(--green-deep); }
+.month-summer .month-name { background: var(--chip-yellow); color: #6e5a14; }
+.month-autumn .month-name { background: var(--chip-peach); color: #7a4a15; }
 .month p {
   margin: 0;
   padding: 0.85rem 1rem 1rem;

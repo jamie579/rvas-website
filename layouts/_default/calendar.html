@@ -9,7 +9,7 @@
   </div>
   <ul class="month-grid">
     {{ range .Params.months }}
-    <li class="month{{ if .big }} month-big{{ end }}">
+    <li class="month month-{{ .season | default "spring" }}{{ if .big }} month-big{{ end }}">
       <span class="month-name">{{ .name }}{{ with .mark }} <span class="month-mark">{{ . }}</span>{{ end }}</span>
       <p>{{ .note }}</p>
     </li>
