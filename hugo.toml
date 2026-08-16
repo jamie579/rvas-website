@@ -18,17 +18,33 @@ enableRobotsTXT = true
     pageRef = '/history'
     weight = 20
   [[menus.main]]
+    name = 'Community'
+    pageRef = '/community'
+    weight = 30
+  [[menus.main]]
+    name = 'Developments'
+    pageRef = '/developments'
+    weight = 40
+  [[menus.main]]
     name = 'Join us'
     pageRef = '/join'
-    weight = 30
+    weight = 50
   [[menus.main]]
     name = 'News'
     pageRef = '/news'
-    weight = 40
+    weight = 60
   [[menus.main]]
-    name = 'Contact & find us'
+    name = 'Gallery'
+    pageRef = '/gallery'
+    weight = 70
+  [[menus.main]]
+    name = 'Constitution'
+    pageRef = '/constitution'
+    weight = 80
+  [[menus.main]]
+    name = 'Contact'
     pageRef = '/contact'
-    weight = 50
+    weight = 90
 
 [markup.goldmark.renderer]
   unsafe = true

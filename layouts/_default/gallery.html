@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+  <ul class="photo-grid">
+    {{ range .Params.photos }}
+    <li>
+      <a href="{{ relURL (strings.TrimPrefix "/" .src) }}">
+        <img src="{{ relURL (strings.TrimPrefix "/" .src) }}" alt="{{ .caption }}" loading="lazy">
+      </a>
+      <p class="photo-caption">{{ .caption }}</p>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

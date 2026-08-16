@@ -1,7 +1,7 @@
 +++
 title = 'Join us'
 description = 'How to join the Rivelin Valley Allotment Society: £5 a year per plot, what membership includes, and where to ask about getting a plot at Roscoe.'
-lead = 'Membership costs £5 a year per plot, and it goes a surprisingly long way.'
+lead = "Membership costs £5 a year per plot, and the fiver stretches further than you'd think."
 +++
 
 ## Already have a plot at Roscoe?
@@ -14,15 +14,15 @@ That's the whole process. No forms in triplicate.
 
 Quite a lot, for a fiver.
 
-Every member has anytime access to our community plot (Plot 30) and its hut, along with the shared tools and the polytunnel. Members can hire the hut too.
+Every member can use our community plot (Plot 30) and its hut at any time, along with the shared tools and the polytunnel.
 
-Each autumn a bulk load of manure arrives and is shared out among members, first come first served. Woodchip and manure are free to members.
+Each autumn a bulk load of manure arrives and is shared out among members, first come, first served. Woodchip and manure are free to members when available.
 
 Membership also brings public liability insurance covering your plot, so you're protected if anyone comes a cropper on it, invited or otherwise. Membership of the National Allotment Society is included as well.
 
 The society speaks up for the site, petitioning the council about improvements and the things tenants need.
 
-And then there's the sociable side: monthly meetings through spring and summer, plant sales and exchanges, working parties and hedge-laying, a summer barbecue, and the annual Fuddle (South Yorkshire for a shared feast) with its silly competition.
+And then there's the sociable side: monthly meetings through spring and summer, plant sales and exchanges, working parties and hedge-laying, a summer barbecue, and the annual fuddle (a shared feast, as South Yorkshire has it) with its silly competition.
 
 ## New to the site?
 
