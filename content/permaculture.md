@@ -12,7 +12,7 @@ She runs monthly workshops on site, open to all members; each one is announced o
 
 ## What permaculture is
 
-Permaculture is a way of designing a growing space by watching how nature runs things and joining in, rather than fighting it. It rests on three plain ethics: care for the earth, care for people, and share the surplus. None of it needs a certificate; most of it is what good allotment gardeners have always done, given a name and a bit of method.
+Permaculture is a way of designing a growing space by watching how nature runs things and joining in. It rests on three plain ethics: care for the earth, care for people, and share the surplus. Sophie has the certificate covered; most of it is what good allotment gardeners have always done, given a name and a bit of method.
 
 ## What it looks like on a plot
 
@@ -20,4 +20,4 @@ Feeding the soil rather than digging it over, with mulch doing the weeding while
 
 ## Getting involved
 
-No need to have read a word of the theory; an interest is plenty. Come along to one of the monthly workshops, email [rvascontact@gmail.com](mailto:rvascontact@gmail.com), or start on the [community plot](/about/) and ask whoever is there.
+An interest is plenty; the theory follows. Come along to one of the monthly workshops, email [rvascontact@gmail.com](mailto:rvascontact@gmail.com), or start on the [community plot](/about/) and ask whoever is there.

@@ -14,11 +14,11 @@ In May 2024 the sale took about £1,400 in a day, close to double our previous b
 
 ## Stannington Carnival
 
-We ran a stall at the Stannington Carnival in 2024 and 2025. The stall isn't there to make money: proceeds go to a local community group after each carnival, and in 2024 the leftover plants were donated to a local infant school for its bee garden. That year five members stepped up at short notice to run the stall; a photo of the society at the carnival made the council newsletter.
+We ran a stall at the Stannington Carnival in 2024 and 2025. The stall is there for the neighbourhood: proceeds go to a local community group after each carnival, and in 2024 the leftover plants were donated to a local infant school for its bee garden. That year five members stepped up at short notice to run the stall; a photo of the society at the carnival made the council newsletter.
 
 ## Workshops and visits
 
-In January 2025 we ran a free bird-box workshop on Plot 30, open to members and non-members alike. About 30 boxes were built in a morning, in two designs (robin boxes and tit boxes), with eco-friendly paints on hand so children could decorate theirs. Our resident ornithologist's siting advice: face the box north or east, so the chicks don't overheat. The red-listed willow tit has become locally extinct along the valley; boxes and healthy hedgerows are our small end of the bargain.
+In January 2025 we ran a free bird-box workshop on Plot 30, open to all comers. About 30 boxes were built in a morning, in two designs (robin boxes and tit boxes), with eco-friendly paints on hand so children could decorate theirs. Our resident ornithologist's siting advice: face the box north or east, so the chicks don't overheat. The red-listed willow tit has become locally extinct along the valley; boxes and healthy hedgerows are our small end of the bargain.
 
 In June 2025 RHS Sheffield visited the site, with fruit-tree workshops on two plots, apples and pears on one and stone fruit on the other, then a question-and-answer session on the community plot that ranged from espaliering to the art of watering.
 
@@ -34,4 +34,4 @@ Plenty of what you see on site was built or kept up by members on working days. 
 
 The calendar still gains the odd new fixture: a solstice gathering joined it in June 2026, and we have already agreed to hold another next year.
 
-The community thing isn't for everyone, we know; if it might be for you, [see what's next](/news/) and [get in touch](/contact/).
+Some come for all of this and some come for the quiet of their own plot; if the company side appeals, [see what's next](/news/) and [get in touch](/contact/).

@@ -4,7 +4,7 @@ description = 'Volunteer at Roscoe Plantation Allotments: working parties, the c
 lead = 'Hands are always welcome; gloves we can lend.'
 +++
 
-You don't need a plot to help the site along, and you don't need experience either; somebody here will happily show you which end of the billhook to hold.
+Anyone can help the site along, plot or no plot; somebody here will happily show you which end of the billhook to hold.
 
 ## Lend a hand
 

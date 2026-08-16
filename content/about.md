@@ -22,7 +22,7 @@ And then there's the fun. We meet monthly through spring and summer, hold plant 
 
 ## The community plot
 
-Plot 30 is our shared base. All members can use it at any time, along with the hut, the community tools and the polytunnel. We also keep continuity beds: small growing spaces for people who aren't able to take on a full plot of their own, or who want somewhere to learn and practise before they do.
+Plot 30 is our shared base. All members can use it at any time, along with the hut, the community tools and the polytunnel. We also keep continuity beds, small growing spaces for however much gardening suits you: ongoing growing at a smaller scale, or somewhere to learn and practise before taking on a plot of your own.
 
 ## How we're run
 
