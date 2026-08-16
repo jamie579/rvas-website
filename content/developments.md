@@ -8,7 +8,7 @@ Five years ago the society was around a dozen people; today we are over fifty. M
 
 ## The lottery project
 
-In October 2024 the National Lottery Community Fund awarded us £16,000 to improve access to Plot 30, our community plot. We did not get there alone. The Allotment Advisory Group pointed us to the South Yorkshire Funding Advice Bureau, and after meeting them we became a good deal more ambitious. (SYFAB is open to any community group; if yours is chasing funding, they are worth a look.)
+In October 2024 the National Lottery Community Fund awarded us £16,000 to improve access to Plot 30, our community plot. We did not get there alone. The Allotment Advisory Group pointed us to the [South Yorkshire Funding Advice Bureau](https://www.syfab.org.uk/), and after meeting them we became a good deal more ambitious. (SYFAB is open to any community group; if yours is chasing funding, they are worth a look.)
 
 The problem was the entrance. The old steps were steep and wobbly: hard with a wheelbarrow, harder with a pram, impossible with a wheelchair. In early December 2024, in about a week of works, the steps were replaced with a 7.8-metre textured-concrete ramp with a full-length handrail, sized for wheelbarrows and laid with wheelchairs and mobility scooters in mind; it is far more accessible than the old steps. The gate went too, replaced with a secure metal one widened to a full metre.
 
