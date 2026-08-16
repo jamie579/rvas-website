@@ -34,6 +34,10 @@ enableRobotsTXT = true
     pageRef = '/news'
     weight = 60
   [[menus.main]]
+    name = 'Calendar'
+    pageRef = '/calendar'
+    weight = 65
+  [[menus.main]]
     name = 'Gallery'
     pageRef = '/gallery'
     weight = 70

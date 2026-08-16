@@ -89,12 +89,60 @@
      away north-east; the Loxley and the Rivelin from the west; the Porter
      from the south-west; the Sheaf from the south. All meet the Don. */
   const RIVERS = [
-    [[.30,.02],[.36,.13],[.44,.26],[.52,.38],[.55,.44],[.66,.40],[.80,.30],[.98,.14]], /* Don   */
-    [[.02,.18],[.14,.22],[.27,.28],[.40,.35],[.50,.41],[.55,.44]],                     /* Loxley */
-    [[.00,.32],[.12,.33],[.25,.35],[.37,.39],[.48,.42],[.55,.44]],                     /* Rivelin */
-    [[.04,.78],[.15,.70],[.28,.61],[.41,.52],[.51,.47],[.55,.44]],                     /* Porter */
-    [[.47,.97],[.50,.84],[.52,.70],[.54,.57],[.55,.44]],                               /* Sheaf */
+    {name:'Don',     labelAt:.22, pts:[[.30,.02],[.36,.13],[.44,.26],[.52,.38],[.55,.44],[.66,.40],[.80,.30],[.98,.14]]},
+    {name:'Loxley',  labelAt:.38, pts:[[.02,.18],[.14,.22],[.27,.28],[.40,.35],[.50,.41],[.55,.44]]},
+    {name:'Rivelin', labelAt:.30, pts:[[.00,.32],[.12,.33],[.25,.35],[.37,.39],[.48,.42],[.55,.44]]},
+    {name:'Porter',  labelAt:.40, pts:[[.04,.78],[.15,.70],[.28,.61],[.41,.52],[.51,.47],[.55,.44]]},
+    {name:'Sheaf',   labelAt:.42, pts:[[.47,.97],[.50,.84],[.52,.70],[.54,.57],[.55,.44]]},
   ];
+  const CONFLUENCE = [.55,.44];
+
+  /* map annotations: hydronyms in blue italic, written in letter by letter
+     once their river has grown, the old-map way */
+  const INKBLUE = [91,110,160];
+  function labelPos(guide, frac){
+    let total=0; const segs=[];
+    for(let i=1;i<guide.length;i++){
+      const L=Math.hypot(guide[i][0]-guide[i-1][0], guide[i][1]-guide[i-1][1]);
+      segs.push(L); total+=L;
+    }
+    let want=total*frac;
+    for(let i=0;i<segs.length;i++){
+      if (want<=segs[i]){
+        const f=want/segs[i];
+        const ax=guide[i][0]+(guide[i+1][0]-guide[i][0])*f;
+        const ay=guide[i][1]+(guide[i+1][1]-guide[i][1])*f;
+        let ang=Math.atan2(guide[i+1][1]-guide[i][1], guide[i+1][0]-guide[i][0]);
+        if (Math.abs(ang)>Math.PI/2) ang+=Math.PI;   /* keep the words upright */
+        return {x:ax,y:ay,ang};
+      }
+      want-=segs[i];
+    }
+    return {x:guide[0][0],y:guide[0][1],ang:0};
+  }
+  function drawLabelChar(x,lab){
+    const ch=lab.name[lab.shown];
+    x.save();
+    x.translate(lab.x,lab.y); x.rotate(lab.ang);
+    x.font='italic 15px Georgia, "Times New Roman", serif';
+    x.fillStyle=rgba(INKBLUE,.8);
+    const adv=lab.shown===0?0:x.measureText(lab.name.slice(0,lab.shown)).width;
+    x.fillText(ch, adv, -9);
+    x.restore();
+    lab.shown++;
+  }
+  function drawConfluence(x,cx,cy){
+    x.strokeStyle=rgba(INKBLUE,.85); x.lineWidth=1.4;
+    x.beginPath(); x.arc(cx,cy,4.5,0,7); x.stroke();
+    x.fillStyle=rgba(INKBLUE,.85);
+    x.beginPath(); x.arc(cx,cy,1.8,0,7); x.fill();
+    x.font='600 9.5px Jost, sans-serif';
+    x.textAlign='center';
+    const label='S H E F F I E L D';
+    x.fillStyle=rgba(INKBLUE,.75);
+    x.fillText(label, cx, cy+18);
+    x.textAlign='start';
+  }
 
   function stemHue(y,f){
     const g = styleAt(y);
@@ -319,8 +367,9 @@
       const cr = pageRect(col);
       if (W - (cr.x + cr.w) > 380){ rx0 = cr.x + cr.w + 30; rx1 = W - 8; }
     }
+    const riverStems = [];
     RIVERS.forEach(course=>{
-      const guide = course.map(p=>[rx0 + p[0]*(rx1-rx0), p[1]*H]);
+      const guide = course.pts.map(p=>[rx0 + p[0]*(rx1-rx0), p[1]*H]);
       let pathLen = 0;
       for(let i=1;i<guide.length;i++)
         pathLen += Math.hypot(guide[i][0]-guide[i-1][0], guide[i][1]-guide[i-1][1]);
@@ -329,8 +378,13 @@
       const a0 = Math.atan2(guide[1][1]-guide[0][1], guide[1][0]-guide[0][0]);
       const t = makeStem(guide[0][0],guide[0][1],a0,len0,segs,1,underRep,W,H,false,guide.slice(1));
       t.delay = Math.floor(Math.random()*30);
+      t.label = {...labelPos(guide, course.labelAt), name:course.name, shown:0};
+      riverStems.push(t);
       underTs.push(t); branch(t,0,underRep,W,H,underTs);
     });
+    jobs[0].rivers = riverStems;
+    jobs[0].confluence = [rx0 + CONFLUENCE[0]*(rx1-rx0), CONFLUENCE[1]*H];
+    jobs[0].confluenceDrawn = false;
 
     /* then the ordinary garden filling in around them */
     const bottomN = full ? 3 : 2;
@@ -370,19 +424,43 @@
   }
 
   let frames = 0;
+  function annotate(job){
+    /* once a river is fully grown, write its name in; when all five are
+       done, mark the confluence */
+    if (!job.rivers) return false;
+    let busy=false;
+    if (frames%3===0){
+      job.rivers.forEach(t=>{
+        try{
+          if (t.drawn>=t.pts.length && t.label.shown<t.label.name.length){
+            drawLabelChar(job.x, t.label); busy=true;
+          }
+        }catch(e){ t.label.shown=t.label.name.length; }
+      });
+    } else busy = job.rivers.some(t=>t.drawn>=t.pts.length && t.label.shown<t.label.name.length);
+    if (!job.confluenceDrawn &&
+        job.rivers.every(t=>t.drawn>=t.pts.length && t.label.shown>=t.label.name.length)){
+      try{ drawConfluence(job.x, job.confluence[0], job.confluence[1]); }catch(e){}
+      job.confluenceDrawn = true;
+    }
+    return busy;
+  }
   function kick(){
     if (running) return; running=true;
     const step = () => {
       frames++;
       let alive=false;
-      jobs.forEach(({x,ts})=>ts.forEach(t=>{
-        try{
-          if (t.delay>0){ t.delay--; alive=true; return; }
-          if (t.parent && t.parent.drawn<t.spawnI){ alive=true; return; }
-          for(let k=0;k<2 && t.drawn<t.pts.length;k++,t.drawn++) drawSeg(x,t,t.drawn);
-          if (t.drawn<t.pts.length) alive=true;
-        }catch(e){ t.drawn = t.pts.length; }
-      }));
+      jobs.forEach(job=>{
+        job.ts.forEach(t=>{
+          try{
+            if (t.delay>0){ t.delay--; alive=true; return; }
+            if (t.parent && t.parent.drawn<t.spawnI){ alive=true; return; }
+            for(let k=0;k<2 && t.drawn<t.pts.length;k++,t.drawn++) drawSeg(job.x,t,t.drawn);
+            if (t.drawn<t.pts.length) alive=true;
+          }catch(e){ t.drawn = t.pts.length; }
+        });
+        if (annotate(job)) alive=true;
+      });
       if (alive) requestAnimationFrame(step); else running=false;
     };
     requestAnimationFrame(step);
@@ -391,12 +469,24 @@
   /* if animation frames never come (background tab, prerender, occluded
      window), plant the garden fully grown rather than not at all */
   function finishInstantly(){
-    jobs.forEach(({x,ts})=>ts.forEach(t=>{
-      try{
-        t.delay=0;
-        while(t.drawn<t.pts.length){ drawSeg(x,t,t.drawn); t.drawn++; }
-      }catch(e){ t.drawn=t.pts.length; }
-    }));
+    jobs.forEach(job=>{
+      job.ts.forEach(t=>{
+        try{
+          t.delay=0;
+          while(t.drawn<t.pts.length){ drawSeg(job.x,t,t.drawn); t.drawn++; }
+        }catch(e){ t.drawn=t.pts.length; }
+      });
+      if (job.rivers){
+        job.rivers.forEach(t=>{
+          try{ while(t.label.shown<t.label.name.length) drawLabelChar(job.x,t.label); }
+          catch(e){ t.label.shown=t.label.name.length; }
+        });
+        if (!job.confluenceDrawn){
+          try{ drawConfluence(job.x, job.confluence[0], job.confluence[1]); }catch(e){}
+          job.confluenceDrawn = true;
+        }
+      }
+    });
   }
 
   const boot = () => {
