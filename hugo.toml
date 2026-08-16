@@ -1,0 +1,38 @@
+baseURL = 'https://rvas.co.uk/'
+languageCode = 'en-gb'
+title = 'Rivelin Valley Allotment Society'
+enableRobotsTXT = true
+
+[params]
+  description = 'Rivelin Valley Allotment Society — a friendly community of gardeners at Roscoe Plantation Allotments in the Rivelin Valley, Sheffield.'
+  email = 'rvascontact@gmail.com'
+  facebookName = 'Rivelin Valley Allotment Society'
+
+[menus]
+  [[menus.main]]
+    name = 'About us'
+    pageRef = '/about'
+    weight = 10
+  [[menus.main]]
+    name = 'Our history'
+    pageRef = '/history'
+    weight = 20
+  [[menus.main]]
+    name = 'Join us'
+    pageRef = '/join'
+    weight = 30
+  [[menus.main]]
+    name = 'News'
+    pageRef = '/news'
+    weight = 40
+  [[menus.main]]
+    name = 'Contact & find us'
+    pageRef = '/contact'
+    weight = 50
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ['html']
+  section = ['html', 'rss']

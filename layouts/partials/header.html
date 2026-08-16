@@ -1,0 +1,14 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ "/" | relURL }}">
+      <img src="{{ "images/logo.jpg" | relURL }}" alt="Rivelin Valley Allotment Society logo" width="52" height="52">
+      <span class="brand-name">Rivelin Valley<br>Allotment Society</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      {{ $current := . }}
+      {{ range site.Menus.main }}
+      <a href="{{ .URL | relURL }}"{{ if or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>

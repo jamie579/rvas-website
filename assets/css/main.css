@@ -1,0 +1,235 @@
+/* Rivelin Valley Allotment Society — palette drawn from the society's
+   brochures: warm off-white ground, charcoal ink, logo greens, pastel chips. */
+
+:root {
+  --bg: #f5f2ee;
+  --bg-alt: #ffffff;
+  --ink: #33393b;
+  --ink-soft: #5a615f;
+  --green: #4d7a26;
+  --green-deep: #375a1a;
+  --green-pale: #dcead0;
+  --chip-green: #cde3b8;
+  --chip-peach: #f9d9b8;
+  --chip-blue: #c3dfef;
+  --chip-pink: #f6c9cb;
+  --chip-yellow: #f3ecc0;
+  --line: #e3ddd4;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Jost", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+img { max-width: 100%; height: auto; }
+
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+.wrap-narrow { max-width: 46rem; }
+
+a { color: var(--green-deep); }
+a:hover { color: var(--green); }
+
+h1, h2, h3 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.015em;
+  color: var(--ink);
+}
+
+/* Header */
+.site-header {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand img { border-radius: 50%; }
+.brand-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.25rem;
+}
+.site-nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.site-nav a:hover { background: var(--green-pale); color: var(--green-deep); }
+.site-nav a[aria-current="page"] { background: var(--green-pale); color: var(--green-deep); }
+
+/* Hero */
+.hero { padding: 3.5rem 0 2.5rem; }
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  color: var(--green);
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+.hero h1 {
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  margin: 0 0 1.25rem;
+  max-width: 22ch;
+}
+.hero h1 .accent { color: var(--green); }
+.hero-lead { max-width: 44rem; color: var(--ink-soft); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.btn-primary { background: var(--green); color: #fff; }
+.btn-primary:hover { background: var(--green-deep); color: #fff; }
+.btn-ghost { border: 2px solid var(--green); color: var(--green-deep); }
+.btn-ghost:hover { background: var(--green-pale); }
+
+/* Benefit chips */
+.benefits { padding: 2.5rem 0; }
+.benefits h2 { margin: 0 0 1.5rem; }
+.benefit-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+.chip {
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.chip-green { background: var(--chip-green); }
+.chip-peach { background: var(--chip-peach); }
+.chip-blue { background: var(--chip-blue); }
+.chip-pink { background: var(--chip-pink); }
+.chip-yellow { background: var(--chip-yellow); }
+
+/* Home cards */
+.home-cards { padding: 2rem 0 3.5rem; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+}
+.card {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 120ms ease;
+}
+.card:hover { border-color: var(--green); }
+.card h3 { margin: 0; }
+.card p { margin: 0; color: var(--ink-soft); }
+.card-link { color: var(--green-deep); font-weight: 600; margin-top: auto; }
+
+/* Content pages */
+.page { padding: 3rem 0 3.5rem; }
+.page-header h1 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin: 0 0 0.5rem; }
+.page-header .lead { font-size: 1.15rem; color: var(--ink-soft); margin: 0 0 1rem; }
+.page-header time { color: var(--ink-soft); font-size: 0.95rem; }
+
+.prose h2 { margin-top: 2.2rem; }
+.prose h3 { margin-top: 1.8rem; }
+.prose img {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 1.25rem;
+  border-left: 4px solid var(--green);
+  background: var(--bg-alt);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--ink-soft);
+}
+.prose table { border-collapse: collapse; width: 100%; }
+.prose td, .prose th { border: 1px solid var(--line); padding: 0.5rem 0.75rem; text-align: left; }
+.prose th { background: var(--green-pale); }
+
+/* News list */
+.post-list { list-style: none; margin: 2rem 0 3rem; padding: 0; display: grid; gap: 1.25rem; }
+.post-list li {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+.post-list h2 { margin: 0 0 0.15rem; font-size: 1.25rem; }
+.post-list a { text-decoration: none; }
+.post-list time { color: var(--ink-soft); font-size: 0.9rem; }
+.post-list p { margin: 0.5rem 0 0; color: var(--ink-soft); }
+
+.backlink { margin-top: 2.5rem; }
+
+/* Footer */
+.site-footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+  padding-top: 2.25rem;
+  padding-bottom: 1rem;
+}
+.footer-title { font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+.footer-note {
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .hero { padding-top: 2.25rem; }
+  .header-inner { justify-content: center; text-align: center; }
+  .site-nav { justify-content: center; }
+}
