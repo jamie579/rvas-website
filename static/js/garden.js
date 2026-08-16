@@ -43,16 +43,24 @@
   };
 
   /* a stem: gentler jitter than a tentacle, a slow upward want,
-     and tendril curls that wind themselves tight */
-  function makeStem(x0,y0,ang0,len0,segs,alpha,repulsors,W,H,tendril){
+     and tendril curls that wind themselves tight.
+     Given a guide (a river's course, as waypoints), it follows it,
+     wobbling like water, then grows free once the course is run. */
+  function makeStem(x0,y0,ang0,len0,segs,alpha,repulsors,W,H,tendril,guide){
     const pts=[[x0,y0]], angs=[ang0];
-    let x=x0,y=y0,ang=ang0,len=len0,curl=0;
-    const heliotropism = tendril ? 0 : .006+Math.random()*.01;
+    let x=x0,y=y0,ang=ang0,len=len0,curl=0,gi=0;
+    const heliotropism = (tendril||guide) ? 0 : .006+Math.random()*.01;
     for(let i=0;i<segs;i++){
-      ang += (Math.random()-.5)*.13 + curl;
+      const guiding = guide && gi<guide.length;
+      ang += (Math.random()-.5)*(guiding?.09:.13) + curl;
       ang += angleDiff(-Math.PI/2,ang)*heliotropism;      /* stems want the sun */
+      if (guiding){
+        const tx=guide[gi][0]-x, ty=guide[gi][1]-y;
+        ang += angleDiff(Math.atan2(ty,tx),ang)*.3;       /* rivers know their course */
+        if (Math.hypot(tx,ty) < len*3.2) gi++;
+      }
       if (tendril) curl += .012;                           /* tendrils wind tight */
-      else {
+      else if (!guiding){
         if (Math.random()<.02) curl=(Math.random()<.5?1:-1)*(.03+Math.random()*.08);
         if (Math.random()<.05) curl*=.5;
       }
@@ -73,9 +81,20 @@
       pts.push([x,y]); angs.push(ang); len*=.997;
     }
     return {pts,angs,alpha,tendril,drawn:1,delay:Math.floor(Math.random()*90),
-            parent:null,spawnI:0,len0,leafSide:Math.random()<.5?1:-1,
+            parent:null,spawnI:0,len0,girth:guide?1.7:1,leafSide:Math.random()<.5?1:-1,
             flower:FLOWERS[Math.floor(Math.random()*FLOWERS.length)]};
   }
+
+  /* the rivers of Sheffield, roughly: the Don running north to centre and
+     away north-east; the Loxley and the Rivelin from the west; the Porter
+     from the south-west; the Sheaf from the south. All meet the Don. */
+  const RIVERS = [
+    [[.30,.02],[.36,.13],[.44,.26],[.52,.38],[.55,.44],[.66,.40],[.80,.30],[.98,.14]], /* Don   */
+    [[.02,.18],[.14,.22],[.27,.28],[.40,.35],[.50,.41],[.55,.44]],                     /* Loxley */
+    [[.00,.32],[.12,.33],[.25,.35],[.37,.39],[.48,.42],[.55,.44]],                     /* Rivelin */
+    [[.04,.78],[.15,.70],[.28,.61],[.41,.52],[.51,.47],[.55,.44]],                     /* Porter */
+    [[.47,.97],[.50,.84],[.52,.70],[.54,.57],[.55,.44]],                               /* Sheaf */
+  ];
 
   function stemHue(y,f){
     const g = styleAt(y);
@@ -205,7 +224,7 @@
     const g = styleAt(y);
     const aMod = (g.dark ? 1 : .85)*alpha;
     x.strokeStyle=rgba(hue,(f*.55+.15)*aMod);
-    x.lineWidth=(t.tendril ? f*1.4+.35 : f*3.2+.45);
+    x.lineWidth=(t.tendril ? f*1.4+.35 : (f*3.2+.45)*t.girth);
     x.lineCap='round';
     x.beginPath(); x.moveTo(pts[i-1][0],pts[i-1][1]); x.lineTo(pts[i][0],pts[i][1]); x.stroke();
     /* leaves, alternating sides, not on tendrils */
@@ -237,14 +256,15 @@
 
   function branch(parent,depth,repulsors,W,H,out){
     if (depth>=2 || parent.pts.length<50) return;
-    const kids = Math.random()<.8 ? (Math.random()<.4?2:1) : 0;
+    const kids = parent.girth>1 ? (2+Math.floor(Math.random()*2))
+               : Math.random()<.8 ? (Math.random()<.4?2:1) : 0;
     for(let k=0;k<kids;k++){
       const i = Math.floor(parent.pts.length*(.25+Math.random()*.5));
       const tendril = Math.random()<.4;
       const child = makeStem(
         parent.pts[i][0], parent.pts[i][1],
         parent.angs[i] + (Math.random()<.5?1:-1)*(.5+Math.random()*.6),
-        parent.len0*.7, Math.floor(parent.pts.length*(tendril?.3:.55)),
+        parent.len0*.7, Math.floor(Math.min(parent.pts.length,140)*(tendril?.3:.55)),
         parent.alpha*.85, repulsors, W, H, tendril);
       child.parent=parent; child.spawnI=i;
       out.push(child);
@@ -253,8 +273,10 @@
   }
 
   function buildGarden(){
-    canvasTop = 0;                       /* the garden owns the whole page, header included */
-    const totalH = document.body.scrollHeight;
+    const anchor = document.querySelector('main');
+    if (!anchor) return;
+    canvasTop = anchor.offsetTop;        /* the garden starts below the header */
+    const totalH = document.body.scrollHeight - canvasTop;
     if (totalH < 300) return;
     const dpr = Math.min(devicePixelRatio||1, 1.5);
     const ctxs = [under,over].map(cv=>{
@@ -272,51 +294,59 @@
     });
 
     /* the writing is protected; cards only gently deflect */
-    const textR  = [...document.querySelectorAll('.hero h1, .hero-lead, .hero-kicker, .page-header, .prose, .post-list, .benefits h2, .brand, .site-nav')]
-                   .map(el=>({...pageRect(el), strength:.55, influence:60}));
+    const textR  = [...document.querySelectorAll('.hero h1, .hero-lead, .hero-kicker, .hero-actions, .page-header, .prose, .post-list, .benefits h2')]
+                   .map(el=>({...pageRect(el), strength:.6, influence:65}));
     const boxesR = [...document.querySelectorAll('.chip, .card, .photo-grid li')]
                    .map(el=>({...pageRect(el), strength:.16, influence:26}));
     const underRep = [...textR, ...boxesR.map(r=>({...r,strength:.08}))];
     const overRep  = [...textR.map(r=>({...r,strength:.9})), ...boxesR];
 
     const full = MODE === 'full';
-    const seeds = [];
-    /* the garden grows up from the ground and in from the hedges */
-    const bottomN = full ? 5 : 3;
-    for(let i=0;i<bottomN;i++)
-      seeds.push({x:W*(.06+Math.random()*.88), y:H-6, a:-Math.PI/2+(Math.random()-.5)*.7});
-    const edgeN = full ? 7 : 4;
-    for(let i=0;i<edgeN;i++)
-      seeds.push({x:(i%2)?W-4:4, y:H*(.08+Math.random()*.84),
-                  a:(i%2? Math.PI*1.1 : -Math.PI*.1)+(Math.random()-.5)*.5});
-    if (full){
-      const hero = document.querySelector('.hero');
-      if (hero){
-        const hr = pageRect(hero);
-        /* climb the empty right-hand side of the hero */
-        seeds.push({x:hr.x+hr.w*.88, y:hr.y+hr.h+40, a:-Math.PI/2+(Math.random()-.5)*.3});
-        seeds.push({x:hr.x+hr.w*.72, y:hr.y+hr.h+80, a:-Math.PI/2+(Math.random()-.5)*.4});
-      }
-    }
 
     jobs = [];
-    const mkSet = (ctx,rep,seedList,alpha) => {
-      const ts=[];
-      seedList.forEach(s=>{
-        const t=makeStem(s.x,s.y,s.a,9+Math.random()*3.5,120+Math.floor(Math.random()*80),alpha,rep,W,H,false);
-        ts.push(t); branch(t,0,rep,W,H,ts);
-      });
-      jobs.push({x:ctx,ts,rep,W,H});
+    const mkSet = (ctx,rep,alpha) => {
+      jobs.push({x:ctx,ts:[],rep,W,H});
+      return jobs[jobs.length-1].ts;
     };
-    mkSet(ctxs[0], underRep, seeds, 1);
-    const overSeeds = [];
-    const overN = full ? 3 : 1;
-    for(let i=0;i<overN;i++)
-      overSeeds.push({x:W*(.08+Math.random()*.84), y:H*(.15+Math.random()*.6), a:Math.PI/2+(Math.random()-.5)*1.1});
-    /* a couple of runners along the header, in from each hedge */
-    overSeeds.push({x:4,   y:30+Math.random()*60, a:-Math.PI*.06+(Math.random()-.5)*.2});
-    overSeeds.push({x:W-4, y:30+Math.random()*60, a:Math.PI*1.06+(Math.random()-.5)*.2});
-    mkSet(ctxs[1], overRep, overSeeds, .5);
+    const underTs = mkSet(ctxs[0], underRep, 1);
+
+    /* first growth: the five rivers, each a guided vine.
+       On wide screens they take the open ground beside the writing;
+       on narrow ones, the whole width. */
+    let rx0 = 0, rx1 = W;
+    const col = document.querySelector('.hero-lead, .prose, .post-list');
+    if (col){
+      const cr = pageRect(col);
+      if (W - (cr.x + cr.w) > 380){ rx0 = cr.x + cr.w + 30; rx1 = W - 8; }
+    }
+    RIVERS.forEach(course=>{
+      const guide = course.map(p=>[rx0 + p[0]*(rx1-rx0), p[1]*H]);
+      let pathLen = 0;
+      for(let i=1;i<guide.length;i++)
+        pathLen += Math.hypot(guide[i][0]-guide[i-1][0], guide[i][1]-guide[i-1][1]);
+      const len0 = 10+Math.random()*2;
+      const segs = Math.floor(pathLen/len0*1.25) + 30;
+      const a0 = Math.atan2(guide[1][1]-guide[0][1], guide[1][0]-guide[0][0]);
+      const t = makeStem(guide[0][0],guide[0][1],a0,len0,segs,1,underRep,W,H,false,guide.slice(1));
+      t.delay = Math.floor(Math.random()*30);
+      underTs.push(t); branch(t,0,underRep,W,H,underTs);
+    });
+
+    /* then the ordinary garden filling in around them */
+    const bottomN = full ? 3 : 2;
+    for(let i=0;i<bottomN;i++){
+      const t=makeStem(W*(.06+Math.random()*.88),H-6,-Math.PI/2+(Math.random()-.5)*.7,
+        9+Math.random()*3.5,110+Math.floor(Math.random()*70),1,underRep,W,H,false);
+      underTs.push(t); branch(t,0,underRep,W,H,underTs);
+    }
+
+    const overTs = mkSet(ctxs[1], overRep, .35);
+    const overN = full ? 2 : 1;
+    for(let i=0;i<overN;i++){
+      const t=makeStem(W*(.08+Math.random()*.84),H*(.15+Math.random()*.6),
+        Math.PI/2+(Math.random()-.5)*1.1,9,90+Math.floor(Math.random()*60),.35,overRep,W,H,false);
+      overTs.push(t); branch(t,0,overRep,W,H,overTs);
+    }
 
     if (reducedMotion){
       jobs.forEach(({x,ts})=>ts.forEach(t=>{for(let i=1;i<t.pts.length;i++){try{drawSeg(x,t,i)}catch(e){break}}}));

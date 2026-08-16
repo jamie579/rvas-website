@@ -62,12 +62,12 @@ h1, h2, h3 {
   color: var(--ink);
 }
 
-/* Header — sits between the garden layers so runners can cross it */
+/* Header */
 .site-header {
   background: var(--bg-alt);
   border-bottom: 3px solid var(--green);
   position: relative;
-  z-index: 2;
+  z-index: 9;
 }
 .header-inner {
   display: flex;
