@@ -12,11 +12,14 @@
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 </head>
-<body>
+<body data-garden="{{ if .IsHome }}full{{ else }}sparse{{ end }}">
   {{ partial "header.html" . }}
-  <main>
+  <canvas id="garden-under" aria-hidden="true"></canvas>
+  <canvas id="garden-over" aria-hidden="true"></canvas>
+  <main class="z">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+  <script src="{{ "js/garden.js" | relURL }}" defer></script>
 </body>
 </html>

@@ -9,14 +9,32 @@
   --green: #4d7a26;
   --green-deep: #375a1a;
   --green-pale: #dcead0;
+  --evening: #24361a;
+  --evening-ink: #d8e4c6;
   --chip-green: #cde3b8;
   --chip-peach: #f9d9b8;
   --chip-blue: #c3dfef;
   --chip-pink: #f6c9cb;
   --chip-yellow: #f3ecc0;
+  --calendula: #e8862b;
+  --foxglove: #d76a8c;
+  --cornflower: #5b7fc7;
   --line: #e3ddd4;
   --radius: 14px;
 }
+
+/* ── the garden: two page-length canvases ── */
+#garden-under, #garden-over {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+#garden-under { z-index: 1; }
+#garden-over { z-index: 3; }
+.z { position: relative; z-index: 2; }
+
+::selection { background: var(--chip-yellow); }
 
 * { box-sizing: border-box; }
 
@@ -35,7 +53,7 @@ img { max-width: 100%; height: auto; }
 .wrap-narrow { max-width: 46rem; }
 
 a { color: var(--green-deep); }
-a:hover { color: var(--green); }
+a:hover { color: var(--calendula); }   /* a dash of the good relish */
 
 h1, h2, h3 {
   font-weight: 600;
@@ -44,10 +62,12 @@ h1, h2, h3 {
   color: var(--ink);
 }
 
-/* Header */
+/* Header — sits between the garden layers so runners can cross it */
 .site-header {
   background: var(--bg-alt);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 3px solid var(--green);
+  position: relative;
+  z-index: 2;
 }
 .header-inner {
   display: flex;
@@ -120,7 +140,7 @@ h1, h2, h3 {
 .btn-ghost { border: 2px solid var(--green); color: var(--green-deep); }
 .btn-ghost:hover { background: var(--green-pale); }
 
-/* Benefit chips */
+/* Benefit chips — pebbles in the border, each its own shape */
 .benefits { padding: 2.5rem 0; }
 .benefits h2 { margin: 0 0 1.5rem; }
 .benefit-grid {
@@ -132,11 +152,16 @@ h1, h2, h3 {
   gap: 1rem;
 }
 .chip {
-  border-radius: var(--radius);
-  padding: 1.1rem 1.2rem;
+  padding: 1.15rem 1.3rem;
   font-weight: 500;
   line-height: 1.4;
+  transition: transform 160ms ease;
 }
+.chip:nth-child(4n+1) { border-radius: 1.4rem 2.6rem 1.2rem 2.2rem; transform: rotate(-.5deg); }
+.chip:nth-child(4n+2) { border-radius: 2.4rem 1.2rem 2.5rem 1.3rem; transform: rotate(.4deg); }
+.chip:nth-child(4n+3) { border-radius: 1.2rem 2.2rem 1.4rem 2.6rem; transform: rotate(.6deg); }
+.chip:nth-child(4n+4) { border-radius: 2.6rem 1.4rem 2.1rem 1.2rem; transform: rotate(-.4deg); }
+.chip:hover { transform: rotate(0deg) scale(1.03); }
 .chip-green { background: var(--chip-green); }
 .chip-peach { background: var(--chip-peach); }
 .chip-blue { background: var(--chip-blue); }
@@ -153,16 +178,20 @@ h1, h2, h3 {
 .card {
   background: var(--bg-alt);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: 1.6rem 1.1rem 1.8rem 1.2rem;
   padding: 1.5rem;
   text-decoration: none;
   color: var(--ink);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transition: border-color 120ms ease;
+  transition: border-color 120ms ease, transform 160ms ease, box-shadow 160ms ease;
 }
-.card:hover { border-color: var(--green); }
+.card:hover {
+  border-color: var(--green);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -14px rgba(55, 90, 26, 0.45);
+}
 .card h3 { margin: 0; }
 .card p { margin: 0; color: var(--ink-soft); }
 .card-link { color: var(--green-deep); font-weight: 600; margin-top: auto; }
@@ -170,6 +199,14 @@ h1, h2, h3 {
 /* Content pages */
 .page { padding: 3rem 0 3.5rem; }
 .page-header h1 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin: 0 0 0.5rem; }
+.page-header h1::before {
+  content: '❀';
+  color: var(--foxglove);
+  font-size: 0.7em;
+  margin-right: 0.45em;
+  vertical-align: 0.12em;
+}
+.page:nth-of-type(odd) .page-header h1::before { color: var(--calendula); }
 .page-header .lead { font-size: 1.15rem; color: var(--ink-soft); margin: 0 0 1rem; }
 .page-header time { color: var(--ink-soft); font-size: 0.95rem; }
 
@@ -234,30 +271,51 @@ h1, h2, h3 {
   color: var(--ink-soft);
 }
 
-/* Footer */
+/* Footer — the garden at dusk */
 .site-footer {
-  background: var(--bg-alt);
-  border-top: 1px solid var(--line);
+  background: var(--evening);
   margin-top: 2rem;
   font-size: 0.95rem;
-  color: var(--ink-soft);
+  color: var(--evening-ink);
+  position: relative;
+  z-index: 2;
 }
+.site-footer a { color: var(--chip-yellow); }
+.site-footer a:hover { color: #fff; }
 .footer-inner {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 1.5rem;
-  padding-top: 2.25rem;
+  padding-top: 2.5rem;
   padding-bottom: 1rem;
 }
-.footer-title { font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+.footer-title { font-weight: 600; color: #fff; margin-bottom: 0.35rem; }
 .footer-note {
   padding-top: 0.5rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.75rem;
   font-style: italic;
+  color: var(--chip-green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.stamp {
+  color: var(--chip-yellow);
+  opacity: 0.85;
+  transform: rotate(-8deg);
+  flex: none;
 }
 
 @media (max-width: 640px) {
   .hero { padding-top: 2.25rem; }
   .header-inner { justify-content: center; text-align: center; }
   .site-nav { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip, .card, .btn { transition: none; }
+  .chip:hover { transform: none; }
+  .card:hover { transform: none; }
 }
