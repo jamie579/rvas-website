@@ -10,7 +10,7 @@ Something is usually happening beyond the individual plots: seedlings to water o
 
 The plant sale in May is the big one. Members sow communally on Plot 30 through spring, pot on in the polytunnel and share the watering; by sale weekend the tables hold vegetable plants, herbs, flowers, strawberries and the odd curiosity, like the 'Lady Godiva' pumpkin: grown for its hull-less seeds, about a pound of them per fruit, and not a shell to spit out.
 
-In May 2024 the sale took about £1,400 in a day, close to double our previous best; the sales have raised around £6,000 in total over the last few years. We've taken card payments since 2024. Everything raised goes back into the society's work: shared tools, Plot 30 and subsidised events through the year.
+The May 2024 sale was close to double our previous best, and the sales have grown year on year. We've taken card payments since 2024. Everything raised goes back into the society's work: shared tools, Plot 30 and subsidised events through the year.
 
 ## Stannington Carnival
 

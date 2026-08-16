@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  {{ partial "seo.html" . }}
   <link rel="icon" href="{{ "images/logo-icon.png" | relURL }}">
   <link rel="apple-touch-icon" href="{{ "images/logo-icon.png" | relURL }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
