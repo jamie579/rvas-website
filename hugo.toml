@@ -34,6 +34,10 @@ enableRobotsTXT = true
     pageRef = '/join'
     weight = 50
   [[menus.main]]
+    name = 'Get involved'
+    pageRef = '/get-involved'
+    weight = 55
+  [[menus.main]]
     name = 'News'
     pageRef = '/news'
     weight = 60
