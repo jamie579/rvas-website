@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="wrap page">
+  <div class="paper" style="max-width: 46rem;">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+    </header>
+    <div class="prose">{{ .Content }}</div>
+  </div>
+  <ul class="month-grid">
+    {{ range .Params.months }}
+    <li class="month{{ if .big }} month-big{{ end }}">
+      <span class="month-name">{{ .name }}{{ with .mark }} <span class="month-mark">{{ . }}</span>{{ end }}</span>
+      <p>{{ .note }}</p>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

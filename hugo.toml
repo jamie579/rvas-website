@@ -22,6 +22,10 @@ enableRobotsTXT = true
     pageRef = '/community'
     weight = 30
   [[menus.main]]
+    name = 'Permaculture'
+    pageRef = '/permaculture'
+    weight = 35
+  [[menus.main]]
     name = 'Developments'
     pageRef = '/developments'
     weight = 40

@@ -230,6 +230,21 @@ h1, h2, h3 {
   border-radius: var(--radius);
   border: 1px solid var(--line);
 }
+.prose img[src*="permaculture-coordinator"] {
+  width: 200px;
+  border-radius: 50%;
+  border: 3px solid var(--green);
+  float: right;
+  margin: 0 0 1rem 1.5rem;
+  shape-outside: circle(50%);
+}
+@media (max-width: 640px) {
+  .prose img[src*="permaculture-coordinator"] {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+}
 .prose blockquote {
   margin: 1.5rem 0;
   padding: 0.25rem 1.25rem;
@@ -256,6 +271,52 @@ h1, h2, h3 {
 .post-list p { margin: 0.5rem 0 0; color: var(--ink-soft); }
 
 .backlink { margin-top: 2.5rem; }
+
+/* The calendar: twelve leaves off a wall calendar */
+.month-grid {
+  list-style: none;
+  margin: 2rem 0 3rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.25rem;
+}
+.month {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px -6px rgba(55, 90, 26, 0.4);
+}
+.month-name {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--green-deep);
+  background: var(--chip-green);
+  border-bottom: 1px solid var(--line);
+}
+.month:nth-child(4n+2) .month-name { background: var(--chip-peach); color: #7a4a15; }
+.month:nth-child(4n+3) .month-name { background: var(--chip-blue); color: #2e4a6e; }
+.month:nth-child(4n+4) .month-name { background: var(--chip-yellow); color: #6e5a14; }
+.month p {
+  margin: 0;
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.month-mark { float: right; }
+.month-big {
+  border-width: 2px;
+  border-color: var(--green);
+  box-shadow: 0 4px 14px -8px rgba(55, 90, 26, 0.55);
+}
+.month-big .month-name { font-size: 0.95rem; }
 
 /* Photo gallery */
 .photo-grid {
