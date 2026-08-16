@@ -369,9 +369,11 @@
     }, 3400);
   }
 
+  let frames = 0;
   function kick(){
     if (running) return; running=true;
     const step = () => {
+      frames++;
       let alive=false;
       jobs.forEach(({x,ts})=>ts.forEach(t=>{
         try{
@@ -386,7 +388,23 @@
     requestAnimationFrame(step);
   }
 
-  const boot = () => buildGarden();
+  /* if animation frames never come (background tab, prerender, occluded
+     window), plant the garden fully grown rather than not at all */
+  function finishInstantly(){
+    jobs.forEach(({x,ts})=>ts.forEach(t=>{
+      try{
+        t.delay=0;
+        while(t.drawn<t.pts.length){ drawSeg(x,t,t.drawn); t.drawn++; }
+      }catch(e){ t.drawn=t.pts.length; }
+    }));
+  }
+
+  const boot = () => {
+    buildGarden();
+    const f0 = frames;
+    setTimeout(()=>{ if (frames===f0) finishInstantly(); }, 2500);
+  };
+  document.addEventListener('visibilitychange', ()=>{ if (!document.hidden) kick(); });
   if (document.readyState==='complete') boot();
   else addEventListener('load', boot);
   let rT; addEventListener('resize', ()=>{ clearTimeout(rT); rT=setTimeout(boot,300); });
