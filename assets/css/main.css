@@ -1,6 +1,22 @@
 /* Rivelin Valley Allotment Society — palette drawn from the society's
    brochures: warm off-white ground, charcoal ink, logo greens, pastel chips. */
 
+/* Jost, self-hosted (variable font, latin subset) — no third-party requests */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/jost-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/jost-italic-var.woff2') format('woff2');
+}
+
 :root {
   --bg: #f5f2ee;
   --bg-alt: #ffffff;
