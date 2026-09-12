@@ -18,7 +18,7 @@ From the sixteenth century the Rivelin — along with the Loxley, Porter, Sheaf 
 
 The old forests were fed to the furnaces. Pictures from the late nineteenth century show very few trees left in the valley, which is presumably why the Roscoe Plantation was planted.
 
-The Roscoe Dam (1725) lay on the left bank of the river, across from the allotments. It was filled from a beautiful double-arched weir, apparently designed to hold back silt. Roscoe Mill was a grinding shop, mainly producing saw blades and fireplace fenders. Next to it stood a row of stone cottages, now demolished, and a stone well inscribed BEER-LAHAI-ROI: Hebrew, from the Book of Genesis, meaning 'The Well of the Living One who sees me'. Nothing more is known about its origin. The Roscoe Bridge still stands.
+The Roscoe Dam (1725) was filled from a beautiful double-arched weir, apparently designed to hold back silt. Roscoe Mill was a grinding shop, mainly producing saw blades and fireplace fenders. Next to it stood a row of stone cottages, now demolished, and a stone well inscribed BEER-LAHAI-ROI: Hebrew, from the Book of Genesis, meaning 'The Well of the Living One who sees me'. Nothing more is known about its origin. The Roscoe Bridge still stands.
 
 ## 500 years of growing
 

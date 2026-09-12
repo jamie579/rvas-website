@@ -6,7 +6,7 @@ lead = 'The rules we run by.'
 
 The society is governed by a written constitution, revised and approved on 12 March 2020. What follows is a short summary of what it covers; the document itself is the authority.
 
-[Read the full constitution (PDF)](/docs/rvas-constitution-2020.pdf)
+For a copy of the full constitution, email [rvascontact@gmail.com](mailto:rvascontact@gmail.com?subject=Constitution%20request).
 
 The constitution sets out what the society is for: to promote allotment gardening as recreation, for health and education, and to build stronger communities in the Rivelin Valley area.
 

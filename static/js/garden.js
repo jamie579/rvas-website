@@ -1,14 +1,16 @@
 /* The garden — a living border for the whole page.
    Two page-length canvases: an under-layer (behind the writing, above the
    paper) and a sparse over-layer that occasionally crosses a card edge.
-   Stems grow while the page is open, put out leaves and tendrils as they
-   go, and bloom where they stop. Vines steer around the writing.
+   Stems grow once, put out leaves and tendrils as they go, and bloom where
+   they stop. Vines steer around the writing. Small screens, touch-first
+   devices and reduced-motion preferences keep the page free of vines.
    Density per page via <body data-garden="full|sparse|off">.
    Grown from the Compost Collaborative's organism.js, rerooted. */
 (() => {
   const MODE = document.body.dataset.garden || 'sparse';
   if (MODE === 'off') return;
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Keep this query in step with the canvas visibility rule in main.css.
+  const calmGarden = matchMedia('(max-width: 900px), (pointer: coarse), (prefers-reduced-motion: reduce)');
 
   const under = document.getElementById('garden-under');
   const over  = document.getElementById('garden-over');
@@ -26,7 +28,8 @@
     {petal:[123,94,167], heart:[70,48,105],  n:0,  kind:'spike'},   /* lupin       */
   ];
 
-  let canvasTop = 0, jobs = [], running = false, sproutTimer = null, sprouts = 0, bands = [];
+  let canvasTop = 0, jobs = [], running = false, frameId = null, bands = [];
+  let fallbackTimer = null;
 
   const pageRect = el => {
     const r = el.getBoundingClientRect();
@@ -402,25 +405,7 @@
       overTs.push(t); branch(t,0,overRep,W,H,overTs);
     }
 
-    if (reducedMotion){
-      jobs.forEach(({x,ts})=>ts.forEach(t=>{for(let i=1;i<t.pts.length;i++){try{drawSeg(x,t,i)}catch(e){break}}}));
-      return;
-    }
     kick();
-    clearInterval(sproutTimer); sprouts=0;
-    sproutTimer = setInterval(()=>{
-      if (document.hidden || sprouts>=20) return;
-      const set = jobs[0];
-      if (!set || !set.ts.length) return;
-      const host = set.ts[Math.floor(Math.random()*set.ts.length)];
-      if (!host || host.drawn<20) return;
-      const i = Math.floor(host.drawn*(0.2+Math.random()*.7));
-      const s = makeStem(host.pts[i][0],host.pts[i][1],
-        host.angs[i]+(Math.random()<.5?1:-1)*(.6+Math.random()*.7),
-        6.5, 14+Math.floor(Math.random()*20),
-        .8, set.rep, set.W, set.H, Math.random()<.5);
-      set.ts.push(s); sprouts++; kick();
-    }, 3400);
   }
 
   let frames = 0;
@@ -446,8 +431,10 @@
     return busy;
   }
   function kick(){
-    if (running) return; running=true;
+    if (running || calmGarden.matches || document.hidden || !jobs.length) return;
+    running=true;
     const step = () => {
+      frameId = null;
       frames++;
       let alive=false;
       jobs.forEach(job=>{
@@ -461,9 +448,9 @@
         });
         if (annotate(job)) alive=true;
       });
-      if (alive) requestAnimationFrame(step); else running=false;
+      if (alive) frameId = requestAnimationFrame(step); else running=false;
     };
-    requestAnimationFrame(step);
+    frameId = requestAnimationFrame(step);
   }
 
   /* if animation frames never come (background tab, prerender, occluded
@@ -490,12 +477,39 @@
   }
 
   const boot = () => {
+    cancelAnimationFrame(frameId);
+    clearTimeout(fallbackTimer);
+    running = false;
+    frameId = null;
+    jobs = [];
+    if (calmGarden.matches){
+      // Release the page-sized canvas buffers as well as hiding the artwork.
+      [under, over].forEach(cv=>{ cv.width = 0; cv.height = 0; });
+      return;
+    }
     buildGarden();
     const f0 = frames;
-    setTimeout(()=>{ if (frames===f0) finishInstantly(); }, 2500);
+    fallbackTimer = setTimeout(()=>{ if (frames===f0) finishInstantly(); }, 2500);
   };
-  document.addEventListener('visibilitychange', ()=>{ if (!document.hidden) kick(); });
+  document.addEventListener('visibilitychange', ()=>{
+    if (document.hidden){
+      cancelAnimationFrame(frameId);
+      frameId = null;
+      running = false;
+    } else kick();
+  });
   if (document.readyState==='complete') boot();
   else addEventListener('load', boot);
-  let rT; addEventListener('resize', ()=>{ clearTimeout(rT); rT=setTimeout(boot,300); });
+  let rT, lastWidth = innerWidth;
+  addEventListener('resize', ()=>{
+    // Mobile browser chrome changes the viewport height while scrolling.
+    if (innerWidth === lastWidth) return;
+    lastWidth = innerWidth;
+    clearTimeout(rT);
+    rT = setTimeout(boot, 300);
+  });
+  calmGarden.addEventListener('change', ()=>{
+    clearTimeout(rT);
+    boot();
+  });
 })();

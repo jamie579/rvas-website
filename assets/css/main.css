@@ -50,6 +50,12 @@
 #garden-over { z-index: 3; }
 .z { position: relative; z-index: 2; }
 
+/* Keep reading calm on phones, touch-first devices and with reduced motion.
+   garden.js uses the same query to skip drawing and release canvas buffers. */
+@media (max-width: 900px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  #garden-under, #garden-over { display: none; }
+}
+
 ::selection { background: var(--chip-yellow); }
 
 * { box-sizing: border-box; }
@@ -177,7 +183,6 @@ h1, h2, h3 {
 .chip:nth-child(4n+2) { border-radius: 2.4rem 1.2rem 2.5rem 1.3rem; transform: rotate(.4deg); }
 .chip:nth-child(4n+3) { border-radius: 1.2rem 2.2rem 1.4rem 2.6rem; transform: rotate(.6deg); }
 .chip:nth-child(4n+4) { border-radius: 2.6rem 1.4rem 2.1rem 1.2rem; transform: rotate(-.4deg); }
-.chip:hover { transform: rotate(0deg) scale(1.03); }
 .chip-green { background: var(--chip-green); }
 .chip-peach { background: var(--chip-peach); }
 .chip-blue { background: var(--chip-blue); }
@@ -205,8 +210,11 @@ h1, h2, h3 {
 }
 .card:hover {
   border-color: var(--green);
-  transform: translateY(-3px);
   box-shadow: 0 10px 24px -14px rgba(55, 90, 26, 0.45);
+}
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .chip:hover { transform: rotate(0deg) scale(1.03); }
+  .card:hover { transform: translateY(-3px); }
 }
 .card h3 { margin: 0; }
 .card p { margin: 0; color: var(--ink-soft); }
@@ -406,8 +414,6 @@ h1, h2, h3 {
   .site-nav { justify-content: center; }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 900px), (pointer: coarse), (prefers-reduced-motion: reduce) {
   .chip, .card, .btn { transition: none; }
-  .chip:hover { transform: none; }
-  .card:hover { transform: none; }
 }

@@ -23,7 +23,7 @@ mark = '❀'
 [[months]]
 name = 'April'
 season = 'spring'
-note = 'Sowing starts for the plant sale on Plot 30. Taken on a daunting plot? A good month to ask for an hour of power.'
+note = 'Communal sowing starts for the plant sale. Taken on a daunting plot? A good month to ask for an hour of power.'
 
 [[months]]
 name = 'May'

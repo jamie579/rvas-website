@@ -20,4 +20,4 @@ Feeding the soil rather than digging it over, with mulch doing the weeding while
 
 ## Getting involved
 
-An interest is plenty; the theory follows. Come along to one of the monthly workshops, email [rvascontact@gmail.com](mailto:rvascontact@gmail.com), or start on the [community plot](/about/) and ask whoever is there.
+An interest is plenty; the theory follows. Email [rvascontact@gmail.com](mailto:rvascontact@gmail.com) to ask about joining a workshop or getting involved in communal growing.

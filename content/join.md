@@ -14,7 +14,7 @@ That's the whole process. No forms in triplicate.
 
 Quite a lot, for a fiver.
 
-Every member can use our community plot (Plot 30) and its hut at any time, along with the shared tools and the polytunnel.
+Members can get involved in communal growing, learn from one another and help shape the society's activities.
 
 Each autumn a bulk load of manure arrives and is shared out among members, first come, first served. Woodchip and manure are free to members when available.
 
@@ -33,3 +33,7 @@ Taking on an overgrown plot can feel like a lot on day one. If you're a new tena
 We don't let the plots ourselves. Plots at Roscoe are rented from Sheffield City Council, so start with the [council's allotments pages](https://www.sheffield.gov.uk/parks-sport-recreation/allotments).
 
 RVAS membership is separate from, and additional to, your council tenancy. Once you have a plot, joining the society is entirely up to you. We'd be pleased to have you, but we know a society isn't everyone's cup of tea, and you'll get a friendly hello over the hedge either way.
+
+## Prefer to share the work?
+
+A whole plot needn't be your starting point. If you'd like to explore plot sharing, help an existing member or try volunteering, visit [Volunteer with us](/volunteer/). Existing members looking for a helping hand are welcome to get in touch too.

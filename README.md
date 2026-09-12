@@ -15,7 +15,8 @@ All the words live in `content/` as Markdown files:
 | `content/about.md` | About us |
 | `content/history.md` | Our history |
 | `content/join.md` | Join us |
-| `content/contact.md` | Contact & find us |
+| `content/contact.md` | Contact and arranged visits |
+| `content/volunteer.md` | Workplace volunteering, plot sharing and helping members |
 | `content/news/` | News posts (one file per post) |
 
 ### Adding a news post
@@ -42,7 +43,17 @@ the site rebuilds itself in about a minute.
   `rvascontact@gmail.com`.
 - Only publish photos where people aren't identifiable, or where everyone
   pictured has agreed.
+- Keep plot numbers, site maps, directions, access details and equipment or
+  storage information off the public site, including downloads and metadata.
+  Arrange visits and share practical details by email. The full constitution
+  is available on request.
 - British English, please.
+
+### Garden animation
+
+The growing garden runs once on larger screens with a fine pointer. It is
+disabled at widths up to 900px, on touch-first devices and when reduced motion
+is requested. Resizing only the viewport height does not restart it.
 
 ## Local preview
 

@@ -1,7 +1,7 @@
 +++
-title = 'Contact & find us'
-description = 'How to contact the Rivelin Valley Allotment Society and find the Roscoe Plantation Allotments on Rivelin Valley Road, Sheffield.'
-lead = 'Drop us an email, say hello on Facebook, or come and find us in the valley.'
+title = 'Contact us'
+description = 'Contact the Rivelin Valley Allotment Society about membership, volunteering, plot sharing or arranging a visit.'
+lead = 'Drop us an email or say hello on Facebook.'
 +++
 
 ## Get in touch
@@ -10,17 +10,15 @@ The best way to reach us is by email: [rvascontact@gmail.com](mailto:rvascontact
 
 We're also on Facebook as **Rivelin Valley Allotment Society**. It's a good place to see what members have been up to and to keep an eye on what's coming.
 
-## Where we are
+## Arrange a visit
 
-Our site is the Roscoe Plantation Allotments on Rivelin Valley Road, Sheffield (in the S6 area). The allotments sit across from where the old Roscoe Mill and its dam once stood, and the old Roscoe Bridge still stands nearby. The valley is also home to Rivelin Valley Park, so it's easy to fit in a walk on the same trip.
+We garden in the Rivelin Valley, Sheffield. If you'd like to visit, please email us first so we can arrange a time and send you the details.
 
 If you'd like to know how the allotments came to be here, there's over a century of it on [our history](/history/) page.
 
-## Site map
+## Volunteering and plot sharing
 
-![Map of Roscoe Plantation Allotments showing the plots, entrances, water taps, parking and the society hut](/images/roscoe-plantation-map.png)
-
-The map shows the entrances, water taps, parking and the society hut. You can also [download the map as a printable PDF](/images/roscoe-plantation-map.pdf).
+We welcome enquiries from individuals and workplaces, including companies arranging staff volunteer days. You can also ask about helping an existing member or sharing the work of a plot. See [Volunteer with us](/volunteer/) for the different ways to take part.
 
 ## Plot enquiries
 

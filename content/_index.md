@@ -8,4 +8,4 @@ We are a friendly group of gardeners in the Rivelin Valley. Most of us have our 
 
 RVAS is a hands-on society; we learn, share and muck in together, and good friendships come up along with the vegetables.
 
-If that sounds like your sort of thing, find out how to [join us](/join/) or email rvascontact@gmail.com. And if you are curious how people came to be gardening in this valley in the first place, [our history](/history/) goes back a surprisingly long way.
+If that sounds like your sort of thing, find out how to [join us](/join/) or [volunteer with us](/volunteer/). Workplace teams, people interested in plot sharing and anyone who would like to help a member are welcome to get in touch. And if you are curious how people came to be gardening in this valley in the first place, [our history](/history/) goes back a surprisingly long way.

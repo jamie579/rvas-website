@@ -6,7 +6,7 @@ lead = 'A welcoming society of gardeners at Roscoe Plantation Allotments in the 
 
 ## Who we are
 
-We are a friendly group of gardeners at Roscoe Plantation Allotments on Rivelin Valley Road, in Sheffield's Rivelin Valley. Most of us have our own plots, but we also keep a shared community plot and continuity beds; more on both below.
+We are a friendly group of gardeners in Sheffield's Rivelin Valley. Most of us have our own plots, but we also keep a shared community plot and continuity beds; more on both below.
 
 RVAS is where we share what we know, help one another out and enjoy each other's company. Old hands and complete beginners are equally welcome.
 
@@ -22,7 +22,9 @@ And then there's the fun. We meet monthly through spring and summer, hold plant 
 
 ## The community plot
 
-Plot 30 is our shared base. All members can use it at any time, along with the hut, the community tools and the polytunnel. We also keep continuity beds, small growing spaces for however much gardening suits you: ongoing growing at a smaller scale, or somewhere to learn and practise before taking on a plot of your own.
+Our community plot brings members together to grow, learn and lend a hand. We also keep continuity beds, small growing spaces for however much gardening suits you: ongoing growing at a smaller scale, or somewhere to learn and practise before taking on a plot of your own.
+
+You can also [volunteer with us](/volunteer/), ask about sharing the work of a plot, or offer a hand to an existing member.
 
 ## How we're run
 
