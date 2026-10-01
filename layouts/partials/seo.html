@@ -13,23 +13,24 @@
 <meta name="twitter:description" content="{{ $desc }}">
 <meta name="twitter:image" content="{{ "images/social-card.jpg" | absURL }}">
 {{- if .IsHome }}
+{{- $organization := dict
+  "@context" "https://schema.org"
+  "@type" "Organization"
+  "name" "Rivelin Valley Allotment Society"
+  "alternateName" "RVAS"
+  "url" site.BaseURL
+  "logo" ("images/logo-icon.png" | absURL)
+  "email" "rvascontact@gmail.com"
+  "foundingDate" "1902"
+  "address" (dict
+    "@type" "PostalAddress"
+    "addressLocality" "Sheffield"
+    "addressRegion" "South Yorkshire"
+    "addressCountry" "GB"
+  )
+  "description" site.Params.description
+-}}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Rivelin Valley Allotment Society",
-  "alternateName": "RVAS",
-  "url": {{ site.BaseURL | jsonify }},
-  "logo": {{ "images/logo-icon.png" | absURL | jsonify }},
-  "email": "rvascontact@gmail.com",
-  "foundingDate": "1902",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Sheffield",
-    "addressRegion": "South Yorkshire",
-    "addressCountry": "GB"
-  },
-  "description": {{ site.Params.description | jsonify }}
-}
+{{ $organization | jsonify | safeJS }}
 </script>
 {{- end }}
