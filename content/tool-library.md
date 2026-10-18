@@ -1,7 +1,7 @@
 +++
 title = 'Tool Library'
-description = 'Member-completed induction checklists for RVAS strimmers and hedge cutters, with an emailed copy and a record for the RVAS team.'
-lead = 'Choose a checklist, complete the induction together and keep a copy of the record.'
+description = 'Instruction manuals and member-completed induction checklists for RVAS strimmers and hedge cutters.'
+lead = 'Find the matching manual, complete the induction together and keep a copy of the record.'
 +++
 
 These forms record a practical induction with an experienced member, using the actual machine and its manual. They supplement the manual. **Submitting a form does not itself authorise solo use.**
@@ -10,7 +10,13 @@ These forms record a practical induction with an experienced member, using the a
 
 Choose **Complete online** to fill in a Google Form, or **Printable checklist** for a two-page A4 PDF to complete by hand. A Google account is not required for the online forms.
 
+The **instruction manuals** are linked beside each tool category below. Match the model on the machine's label before using a manual.
+
 {{< tool-checklists restricted="no" >}}
+
+### Protective equipment
+
+**Oregon Protect 675100 helmet, visor and ear defenders:** [instruction download page](https://www.screwfix.com/p/oregon-protect-675100-forestry-helmet-with-ear-defenders-visor-with-ear-defenders-visor/318la). Open **Downloads → Instruction Manual** on the supplier's page.
 
 ## Using these checklists
 

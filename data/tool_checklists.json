@@ -4,27 +4,66 @@
     "url": "https://docs.google.com/forms/d/e/1FAIpQLScuTSVURsCdqRDfqXL9rdp-W3aXszHDfhDpVGuDpKv-I21NIg/viewform",
     "points": 22,
     "restricted": "no",
-    "pdf": "/downloads/rvas-petrol-strimmer-checklist.pdf"
+    "pdf": "/downloads/rvas-petrol-strimmer-checklist.pdf",
+    "manuals": [
+      {
+        "title": "STIHL FS 56 series",
+        "url": "https://ssc.stihl.com/tsa/techdoc-documents/DVS_STIHL%2FZBA%2FZBA%2F0458-547-0121-F_ZBA_05_01.pdf"
+      }
+    ]
   },
   {
     "title": "Electric strimmer",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSeIg19wlhJowTbs9fdBItjWLg7c3tg-lG5X0vpZeHHZRug_Qg/viewform",
     "points": 19,
     "restricted": "no",
-    "pdf": "/downloads/rvas-electric-strimmer-checklist.pdf"
+    "pdf": "/downloads/rvas-electric-strimmer-checklist.pdf",
+    "manuals": [
+      {
+        "title": "Einhell AGILLO 36/255 BL",
+        "url": "https://d2c5rvsfjg2eub.cloudfront.net/asset/208244749100/document_p0fnuebko95a7em465ccegs34a?attachment%3Bfilename=3411320_21020_001_SPK9-1.pdf",
+        "note": "Article 3411320, I.-Nr. 21020; includes English."
+      }
+    ]
   },
   {
     "title": "Petrol hedge cutter",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSdShe7nD8y541atjxxm-fdV8kstSop2-AWiPxSpcl09ad3FKQ/viewform",
     "points": 22,
     "restricted": "no",
-    "pdf": "/downloads/rvas-petrol-hedge-cutter-checklist.pdf"
+    "pdf": "/downloads/rvas-petrol-hedge-cutter-checklist.pdf",
+    "manuals": [
+      {
+        "title": "Erbauer EHTP22-1",
+        "url": "https://www.kingfisherspares.com/assets/manuals/EHTP22-1%20User%20Handbook.pdf"
+      }
+    ]
   },
   {
     "title": "Electric hedge cutter",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSdcU79cM9hXjU-DVm8gOBPF_XKZ96l_15KRIn0Nfz14qNM_Zg/viewform",
     "points": 20,
     "restricted": "no",
-    "pdf": "/downloads/rvas-electric-hedge-cutter-checklist.pdf"
+    "pdf": "/downloads/rvas-electric-hedge-cutter-checklist.pdf",
+    "manuals": [
+      {
+        "title": "Mac Allister MCI1207GHT",
+        "url": "https://media.diy.com/is/content/Kingfisher/5063022637000_MNL_INpdf",
+        "note": "Includes English."
+      },
+      {
+        "title": "STIHL KMA 135 R motor",
+        "url": "https://ssc.stihl.com/tsa/techdoc-documents/DVS_STIHL/ZBA/ZBA/0458-687-0121-B_ZBA_03_01.pdf"
+      },
+      {
+        "title": "STIHL HL-KM 145° hedge-trimmer attachment",
+        "url": "https://ssc.stihl.com/tsa/techdoc-documents/DVS_STIHL/ZBA/ZBA/0458-475-0121-E_ZBA_04_01.pdf"
+      },
+      {
+        "title": "STIHL AP 20.0 battery — AP instructions",
+        "url": "https://www.stihl.co.uk/content/dam/stihl/media/globalvu/battery-documents/en/si-001-2017-01-01.pdf"
+      }
+    ],
+    "manual_note": "For the STIHL long-reach hedge cutter, read the motor, attachment and battery instructions together."
   }
 ]

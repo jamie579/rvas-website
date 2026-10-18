@@ -8,6 +8,20 @@
       <a class="card-link" href="{{ .url }}" aria-label="Open {{ lower .title }} online form">Complete online →</a>
       <a href="{{ .pdf | relURL }}" type="application/pdf" aria-label="Printable {{ lower .title }} checklist, PDF, 2 pages">Printable checklist <span class="pdf-note">(PDF, 2 pages)</span></a>
     </div>
+    {{ with .manuals }}
+    <div class="tool-manuals">
+      <h4>Instruction manuals</h4>
+      <ul>
+        {{ range . }}
+        <li>
+          <a href="{{ .url }}" type="application/pdf">{{ .title }} <span class="pdf-note">(PDF)</span></a>
+          {{ with .note }}<span class="manual-note">{{ . }}</span>{{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+    {{ with .manual_note }}<p class="manual-note">{{ . }}</p>{{ end }}
   </section>
   {{ end }}
   {{ end }}

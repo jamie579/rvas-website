@@ -287,6 +287,13 @@ h1, h2, h3 {
 .tool-actions { display: grid; gap: 0.65rem; margin-top: auto; padding-top: 0.5rem; }
 .tool-actions a { display: block; }
 .tool-actions .pdf-note { font-size: 0.85rem; white-space: nowrap; }
+.tool-manuals { border-top: 1px solid var(--line); margin-top: 0.75rem; padding-top: 0.75rem; }
+.prose .tool-manuals h4 { margin: 0 0 0.5rem; font-size: 1rem; }
+.prose .tool-manuals ul { margin: 0; padding-left: 1.2rem; }
+.tool-manuals li + li { margin-top: 0.65rem; }
+.tool-manuals a { overflow-wrap: anywhere; }
+.tool-manuals .pdf-note { font-size: 0.85rem; white-space: nowrap; }
+.tool-card .manual-note { display: block; font-size: 0.85rem; color: var(--ink-soft); }
 .tool-checklists a:focus-visible {
   outline: 3px solid var(--green-deep);
   outline-offset: 4px;
