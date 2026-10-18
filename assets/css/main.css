@@ -281,6 +281,17 @@ h1, h2, h3 {
 .prose td, .prose th { border: 1px solid var(--line); padding: 0.5rem 0.75rem; text-align: left; }
 .prose th { background: var(--green-pale); }
 
+/* Tool induction links follow the site's existing card treatment. */
+.tool-checklists { margin: 1.5rem 0; }
+.prose .tool-checklists h3 { margin: 0; font-size: 1.2rem; }
+.tool-checklists .card:focus-visible {
+  outline: 3px solid var(--green-deep);
+  outline-offset: 4px;
+}
+@media (max-width: 640px) {
+  .tool-checklists { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* News list */
 .post-list { list-style: none; margin: 2rem 0 3rem; padding: 0; display: grid; gap: 1.25rem; }
 .post-list li {

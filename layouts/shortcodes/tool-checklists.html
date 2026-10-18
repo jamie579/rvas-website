@@ -1,0 +1,11 @@
+<div class="card-grid tool-checklists">
+  {{ range site.Data.tool_checklists }}
+  {{ if eq .restricted ($.Get "restricted") }}
+  <a class="card" href="{{ .url }}">
+    <h3>{{ .title }}</h3>
+    <p>{{ .points }} checklist points · demonstration and practice</p>
+    <span class="card-link">Open {{ lower .title }} form →</span>
+  </a>
+  {{ end }}
+  {{ end }}
+</div>

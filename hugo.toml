@@ -42,6 +42,10 @@ enableRobotsTXT = true
     pageRef = '/volunteer'
     weight = 56
   [[menus.main]]
+    name = 'Tool Library'
+    pageRef = '/tool-library'
+    weight = 57
+  [[menus.main]]
     name = 'News'
     pageRef = '/news'
     weight = 60

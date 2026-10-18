@@ -17,6 +17,7 @@ All the words live in `content/` as Markdown files:
 | `content/join.md` | Join us |
 | `content/contact.md` | Contact and arranged visits |
 | `content/volunteer.md` | Workplace volunteering, plot sharing and helping members |
+| `content/tool-library.md` | Tool induction guidance and checklist links |
 | `content/news/` | News posts (one file per post) |
 
 ### Adding a news post
@@ -48,6 +49,16 @@ the site rebuilds itself in about a minute.
   Arrange visits and share practical details by email. The full constitution
   is available on request.
 - British English, please.
+
+### Tool induction forms
+
+The Tool Library page links to eight Google Forms owned by the RVAS account.
+Public responder URLs are in `data/tool_checklists.json`; never substitute edit
+links or response spreadsheet links. Each form collects a responder-entered email,
+has response copies set to **Always**, and saves to its own private response sheet
+in the RVAS Drive folder **Tool Library – Inductions**. Response summaries and
+response editing are disabled. The forms use typed names for member and demonstrator
+sign-offs. Keep checklist changes consistent with the approved source guidance.
 
 ### Garden animation
 
