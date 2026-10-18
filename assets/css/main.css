@@ -282,6 +282,8 @@ h1, h2, h3 {
 .prose th { background: var(--green-pale); }
 
 /* Tool induction links follow the site's existing card treatment. */
+.tool-induction { margin: 1.5rem 0; }
+.prose .tool-induction h2 { margin: 0; }
 .tool-checklists { margin: 1.5rem 0; }
 .prose .tool-checklists h3 { margin: 0; font-size: 1.2rem; }
 .tool-actions { display: grid; gap: 0.65rem; margin-top: auto; padding-top: 0.5rem; }
@@ -294,7 +296,12 @@ h1, h2, h3 {
 .tool-manuals a { overflow-wrap: anywhere; }
 .tool-manuals .pdf-note { font-size: 0.85rem; white-space: nowrap; }
 .tool-card .manual-note { display: block; font-size: 0.85rem; color: var(--ink-soft); }
-.tool-checklists a:focus-visible {
+.tool-individual-checklists { margin: 1.5rem 0; }
+.tool-individual-checklists summary { cursor: pointer; color: var(--green-deep); font-weight: 600; }
+.tool-checklists a:focus-visible,
+.tool-induction a:focus-visible,
+.tool-individual-checklists a:focus-visible,
+.tool-individual-checklists summary:focus-visible {
   outline: 3px solid var(--green-deep);
   outline-offset: 4px;
 }

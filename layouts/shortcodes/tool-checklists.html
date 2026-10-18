@@ -1,16 +1,27 @@
+{{ with site.Data.tool_induction }}
+<section class="card tool-induction" aria-labelledby="combined-induction">
+  <h2 id="combined-induction">Combined tool induction</h2>
+  <p>Petrol and electric strimmers · petrol and electric hedge cutters</p>
+  <div class="tool-actions">
+    {{ with .url }}
+    <a class="card-link" href="{{ . }}">Complete the combined form →</a>
+    <a href="{{ $.Site.Data.tool_induction.pdf | relURL }}" type="application/pdf">Printable combined form <span class="pdf-note">(PDF)</span></a>
+    {{ else }}
+    <a class="card-link" href="{{ .pdf | relURL }}" type="application/pdf">Download the combined form <span class="pdf-note">(PDF)</span> →</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<h2>Instruction manuals</h2>
+<p>Match the model on the machine’s label. Read the relevant manual and follow its PPE requirements before use.</p>
 <div class="card-grid tool-checklists">
   {{ range site.Data.tool_checklists }}
   {{ if eq .restricted ($.Get "restricted") }}
   <section class="card tool-card" aria-labelledby="tool-{{ .title | urlize }}">
     <h3 id="tool-{{ .title | urlize }}">{{ .title }}</h3>
-    <p>{{ .points }} checklist points · demonstration and practice</p>
-    <div class="tool-actions">
-      <a class="card-link" href="{{ .url }}" aria-label="Open {{ lower .title }} online form">Complete online →</a>
-      <a href="{{ .pdf | relURL }}" type="application/pdf" aria-label="Printable {{ lower .title }} checklist, PDF, 2 pages">Printable checklist <span class="pdf-note">(PDF, 2 pages)</span></a>
-    </div>
     {{ with .manuals }}
     <div class="tool-manuals">
-      <h4>Instruction manuals</h4>
       <ul>
         {{ range . }}
         <li>
@@ -31,3 +42,15 @@
   {{ end }}
   {{ end }}
 </div>
+
+<details class="tool-individual-checklists">
+  <summary>Individual checklists</summary>
+  <p>The longer checklists are still available if you prefer to complete one tool at a time.</p>
+  <ul>
+    {{ range site.Data.tool_checklists }}
+    {{ if eq .restricted ($.Get "restricted") }}
+    <li><strong>{{ .title }}:</strong> <a href="{{ .url }}" aria-label="Complete the individual {{ lower .title }} checklist online">online form</a> · <a href="{{ .pdf | relURL }}" type="application/pdf" aria-label="Printable individual {{ lower .title }} checklist">printable PDF</a></li>
+    {{ end }}
+    {{ end }}
+  </ul>
+</details>
