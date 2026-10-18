@@ -66,6 +66,11 @@ submissions from that inbox. A notification does not itself approve solo use.
 The brush cutter and chainsaw forms have been withdrawn from public use.
 Keep checklist changes consistent with the approved source guidance.
 
+Each tool also has a two-page A4 printable checklist in `static/downloads/`, linked
+by its `pdf` entry in `data/tool_checklists.json`. Keep the PDF wording consistent
+with the corresponding online form. Paper copies have a member signature space;
+email copies and automatic Drive storage require submitting the online form.
+
 ### Garden animation
 
 The growing garden runs once on larger screens with a fine pointer. It is

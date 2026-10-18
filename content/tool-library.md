@@ -8,7 +8,7 @@ These forms record a practical induction with an experienced member, using the a
 
 ## Choose a checklist
 
-The links open Google Forms. A Google account is not required to complete the forms.
+Choose **Complete online** to fill in a Google Form, or **Printable checklist** for a two-page A4 PDF to complete by hand. A Google account is not required for the online forms.
 
 {{< tool-checklists restricted="no" >}}
 
@@ -19,6 +19,8 @@ The links open Google Forms. A Google account is not required to complete the fo
 3. Record your agreed task, limits and outcome, then enter your own name and date as a **typed sign-off**.
 4. Enter your email address carefully and submit. Google Forms sends you a copy of your answers, saves the record in RVAS’s private Google Drive and sends a notification to **rvascontact@gmail.com** for the RVAS team to review.
 
+If you complete a paper checklist, keep it and enter your answers in the matching online form when you want an emailed copy and a record saved in RVAS Drive.
+
 **If more help is needed, no solo use** until the outstanding points have been addressed and recorded. These forms are induction records, not booking forms or confirmation that a particular machine is available.
 
 The experienced member must know how to use the machine safely and explain it clearly. Allow time for questions and practice. They should watch you checking, handling, starting, using and stopping the machine. Explain any N/A answers and record the limits you agree together.
@@ -26,14 +28,6 @@ The experienced member must know how to use the machine safely and explain it cl
 ### Emergency arrangements
 
 Complete and explain the first-aid kit location, site address or postcode and emergency entrance or access in the form during the induction. If someone is injured, stop and make the area safe without putting yourself at risk. Get first aid; call 999 or 112 for serious injury and arrange access for responders. Report accidents and near misses to the Tool Librarian.
-
-### Committee checks before adopting these sheets
-
-Check each sheet against the actual model’s manual, including PPE, fuel, cutting attachment, safety distances and isolation. Record any model-specific limits and resolve discrepancies before use. Make the correct manuals accessible, arrange suitable checks and maintenance with a competent person, and keep faulty tools out of use.
-
-The source guidance records that **written insurance confirmation is still to be obtained**. Confirm cover for the machinery, tasks, member borrowing and volunteer demonstrations, including operator or age restrictions and whether cover is liability, personal accident or both. Keep the insurer’s response with the policy.
-
-The 18+ limits shown on the petrol tool sheets are society safeguards, not statements of a universal legal requirement. Follow any stricter insurance conditions.
 
 ### Keeping records and refreshing skills
 

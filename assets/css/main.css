@@ -284,7 +284,10 @@ h1, h2, h3 {
 /* Tool induction links follow the site's existing card treatment. */
 .tool-checklists { margin: 1.5rem 0; }
 .prose .tool-checklists h3 { margin: 0; font-size: 1.2rem; }
-.tool-checklists .card:focus-visible {
+.tool-actions { display: grid; gap: 0.65rem; margin-top: auto; padding-top: 0.5rem; }
+.tool-actions a { display: block; }
+.tool-actions .pdf-note { font-size: 0.85rem; white-space: nowrap; }
+.tool-checklists a:focus-visible {
   outline: 3px solid var(--green-deep);
   outline-offset: 4px;
 }

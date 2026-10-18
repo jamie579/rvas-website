@@ -1,11 +1,14 @@
 <div class="card-grid tool-checklists">
   {{ range site.Data.tool_checklists }}
   {{ if eq .restricted ($.Get "restricted") }}
-  <a class="card" href="{{ .url }}">
-    <h3>{{ .title }}</h3>
+  <section class="card tool-card" aria-labelledby="tool-{{ .title | urlize }}">
+    <h3 id="tool-{{ .title | urlize }}">{{ .title }}</h3>
     <p>{{ .points }} checklist points · demonstration and practice</p>
-    <span class="card-link">Open {{ lower .title }} form →</span>
-  </a>
+    <div class="tool-actions">
+      <a class="card-link" href="{{ .url }}" aria-label="Open {{ lower .title }} online form">Complete online →</a>
+      <a href="{{ .pdf | relURL }}" type="application/pdf" aria-label="Printable {{ lower .title }} checklist, PDF, 2 pages">Printable checklist <span class="pdf-note">(PDF, 2 pages)</span></a>
+    </div>
+  </section>
   {{ end }}
   {{ end }}
 </div>

@@ -3,24 +3,28 @@
     "title": "Petrol strimmer",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLScuTSVURsCdqRDfqXL9rdp-W3aXszHDfhDpVGuDpKv-I21NIg/viewform",
     "points": 22,
-    "restricted": "no"
+    "restricted": "no",
+    "pdf": "/downloads/rvas-petrol-strimmer-checklist.pdf"
   },
   {
     "title": "Electric strimmer",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSeIg19wlhJowTbs9fdBItjWLg7c3tg-lG5X0vpZeHHZRug_Qg/viewform",
     "points": 19,
-    "restricted": "no"
+    "restricted": "no",
+    "pdf": "/downloads/rvas-electric-strimmer-checklist.pdf"
   },
   {
     "title": "Petrol hedge cutter",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSdShe7nD8y541atjxxm-fdV8kstSop2-AWiPxSpcl09ad3FKQ/viewform",
     "points": 22,
-    "restricted": "no"
+    "restricted": "no",
+    "pdf": "/downloads/rvas-petrol-hedge-cutter-checklist.pdf"
   },
   {
     "title": "Electric hedge cutter",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSdcU79cM9hXjU-DVm8gOBPF_XKZ96l_15KRIn0Nfz14qNM_Zg/viewform",
     "points": 20,
-    "restricted": "no"
+    "restricted": "no",
+    "pdf": "/downloads/rvas-electric-hedge-cutter-checklist.pdf"
   }
 ]
