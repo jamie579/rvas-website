@@ -14,10 +14,6 @@ The **instruction manuals** are linked beside each tool category below. Match th
 
 {{< tool-checklists restricted="no" >}}
 
-### Protective equipment
-
-**Oregon Protect 675100 helmet, visor and ear defenders:** [instruction download page](https://www.screwfix.com/p/oregon-protect-675100-forestry-helmet-with-ear-defenders-visor-with-ear-defenders-visor/318la). Open **Downloads → Instruction Manual** on the supplier's page.
-
 ## Using these checklists
 
 1. Choose the correct tool and power type above.
