@@ -52,13 +52,19 @@ the site rebuilds itself in about a minute.
 
 ### Tool induction forms
 
-The Tool Library page links to eight Google Forms owned by the RVAS account.
+The Tool Library page links to four Google Forms owned by the RVAS account:
+petrol and electric strimmers, and petrol and electric hedge cutters.
 Public responder URLs are in `data/tool_checklists.json`; never substitute edit
 links or response spreadsheet links. Each form collects a responder-entered email,
 has response copies set to **Always**, and saves to its own private response sheet
 in the RVAS Drive folder **Tool Library – Inductions**. Response summaries and
-response editing are disabled. The forms use typed names for member and demonstrator
-sign-offs. Keep checklist changes consistent with the approved source guidance.
+response editing are disabled. Members complete the checklists in the first person
+and enter their own typed sign-off. There are no demonstrator name or sign-off fields.
+In each form, **Responses → More → Get email notifications for new responses** is
+enabled while signed in as `rvascontact@gmail.com`, so the RVAS team can review
+submissions from that inbox. A notification does not itself approve solo use.
+The brush cutter and chainsaw forms have been withdrawn from public use.
+Keep checklist changes consistent with the approved source guidance.
 
 ### Garden animation
 
